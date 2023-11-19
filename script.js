@@ -16,10 +16,34 @@ function createGrid(x,y)
     {
         let square = document.createElement("div");
         square.classList.add('grid-item');
-        square.style.backgroundColor = "blue";
+        square.style.backgroundColor = "white";
         board.insertAdjacentElement("beforeend", square);
     }
+
     addHoverEffect();
+}
+
+function colorSelection(color)
+{
+     switch (color) 
+     {
+       case "black":
+         markerColor = "black";
+         break;
+       case "red":
+         markerColor = "red";
+         break;
+       case "green":
+         markerColor = "green";
+         break;
+       case "blue":
+         markerColor = "blue";
+         break;
+       default:
+         console.log("Invalid color");
+         break;
+     }
+     console.log("Marker color: " + markerColor);
 }
 
 function addHoverEffect()
@@ -29,7 +53,9 @@ function addHoverEffect()
     for(let i =0; i<griditems.length; i++)
     {
         griditems[i].addEventListener('mouseover', function(){
-            griditems[i].style.backgroundColor = "white";
+            griditems[i].style.backgroundColor = markerColor;
         });
     }
 }
+
+let markerColor = 'black';
